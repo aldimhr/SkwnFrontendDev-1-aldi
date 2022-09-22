@@ -1,5 +1,7 @@
 import Image from 'next/image';
+
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 import playIcon from '../public/static/images/play-icon.svg';
 import searchIcon from '../public/static/images/search-icon.svg';
@@ -17,11 +19,15 @@ import product1 from '../public/static/images/product-1.png';
 import product2 from '../public/static/images/product-2.png';
 import product3 from '../public/static/images/product-3.png';
 import product4 from '../public/static/images/product-4.png';
-import Footer from '../components/Footer';
+import Head from 'next/head';
 
 export default function Home() {
   return (
     <div className="font-inter text-[#2F241F]">
+      <Head>
+        <title>Dekoor</title>
+      </Head>
+
       <Header />
 
       {/* hero section */}

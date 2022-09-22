@@ -5,10 +5,6 @@ import logo from '../public/static/images/logo.png';
 export default function Header() {
   return (
     <div className="shadow-md">
-      <Head>
-        <title>Dekoor</title>
-      </Head>
-
       <header className="p-4 flex justify-between items-center">
         <Image src={logo} alt="dekoor logo" />
         <svg
