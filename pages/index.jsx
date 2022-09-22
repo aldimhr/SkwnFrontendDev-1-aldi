@@ -2,14 +2,20 @@ import Image from 'next/image';
 import Header from '../components/Header';
 import playIcon from '../public/static/images/play-icon.svg';
 import searchIcon from '../public/static/images/search-icon.svg';
+import workIcon from '../public/static/images/work-icon.svg';
+import stripeLogo from '../public/static/images/stripe-logo.png';
+import upworkLogo from '../public/static/images/upwork-logo.png';
+import gustoLogo from '../public/static/images/gusto-logo.png';
+import treehouseLogo from '../public/static/images/treehouse-logo.png';
 
 export default function Home() {
   return (
-    <div className="font-inter">
+    <div className="font-inter text-[#2F241F]">
       <Header />
 
+      {/* hero section */}
       <section className="px-4 py-8">
-        <h2 className="text-[32px] font-bold text-center text-[#2F241F]">
+        <h2 className="text-[32px] font-bold text-center ">
           The kind of <span className="text-[#817253]">furniture</span> you have been looking for
         </h2>
 
@@ -25,6 +31,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* highlighted product */}
       <section className="px-4 py-6 bg-gray-500">
         <h2 className="text-xs text-white">HIGHLIGHTED PRODUCT</h2>
         <div className="mt-11">
@@ -45,6 +52,103 @@ export default function Home() {
               />
             </svg>
           </button>
+        </div>
+      </section>
+
+      {/* why choose us */}
+      <section className="bg-[#2F241F] px-6 py-8  text-[#E5F0B6]">
+        <h2 className="text-xs text-white text-center">WHY CHOOSE US?</h2>
+        <p className="font-bold text-2xl mt-6 text-center">
+          We care about details and the quality of our products
+        </p>
+        <ul className="mt-8">
+          <li className="flex items-center gap-4">
+            <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
+              <div className="w-10 h-10">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-5 mx-auto h-full my-auto"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p className="font-bold text-[15px] text-[#E5F0B6]">
+              MANUFACTURED WITH QUALITY MATERIALS
+            </p>
+          </li>
+          <li className="flex items-center gap-4 mt-4">
+            <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
+              <p className="font-bold text-2xl w-10 h-10 text-center leading-10 align-center">5</p>
+            </div>
+            <p className="font-bold text-[15px] text-[#E5F0B6]">
+              5 YEARS OF WARRANTY FOR EACH PROFUCT
+            </p>
+          </li>
+          <li className="flex items-center gap-4 mt-4">
+            <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
+              <div className="w-10 h-10 flex items-center justify-center ">
+                <Image src={workIcon} alt="work icon" />
+              </div>
+            </div>
+            <p className="font-bold text-[15px] text-[#E5F0B6]">
+              MANUFACTURED WITH QUALITY MATERIALS
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      {/* brands partner */}
+      <section className="py-10 px-6">
+        <h2 className="text-center text-sm">
+          <span className="block font-bold text-2xl ">25+</span> PARTNERED BRANDS
+        </h2>
+
+        <ul className="flex justify-between mt-6">
+          <li>
+            <Image src={gustoLogo} alt="gusto logo" />
+          </li>
+          <li>
+            <Image src={stripeLogo} alt="stripe logo" />
+          </li>
+          <li>
+            <Image src={treehouseLogo} alt="treehouse logo" />
+          </li>
+          <li>
+            <Image src={upworkLogo} alt="upwork logo" />
+          </li>
+        </ul>
+      </section>
+
+      {/* categories */}
+      <section className="px-4 py-6">
+        <div className="px-[19px]">
+          <h2 className="text-sm text-center">Categories</h2>
+          <p className="text-center font-bold text-lg">Furniture Sets Recommendations</p>
+          <ul>
+            <li className="bg-[#FCFAFA] px-4 py-5">
+              <p className="font-bold text-lg">Bedroom</p>
+            </li>
+            <li className="bg-[#E5F0B6] px-4 py-5">
+              <p className="font-bold text-lg">Living Room</p>
+              <p className="mt-3">
+                Enjoy a great living room aesthetics with your family Designs created for increased
+                comfortability
+              </p>
+            </li>
+            <li className="bg-[#FCFAFA] px-4 py-5">
+              <p className="font-bold text-lg">Home Office</p>
+            </li>
+            <li className="bg-[#FCFAFA] px-4 py-5">
+              <p className="font-bold text-lg">Gaming Room</p>
+            </li>
+          </ul>
         </div>
       </section>
     </div>
