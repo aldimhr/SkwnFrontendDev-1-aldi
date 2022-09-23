@@ -18,7 +18,8 @@ export default function Products() {
     if (_DESKTOP) {
       cardWidth = 300 + 36;
     } else {
-      cardWidth = (163 + 16) * 2;
+      cardWidth = 163 + 16;
+      // cardWidth *= 2;
     }
 
     setStyleProductList({
@@ -39,7 +40,7 @@ export default function Products() {
       cardWidth = 300 + 36;
     } else {
       cardWidth = 163 + 16;
-      cardWidth *= 2;
+      // cardWidth *= 2;
     }
 
     setStyleProductList({
@@ -54,9 +55,9 @@ export default function Products() {
         transform: `translateX(${-cardWidth}px)`,
       });
       setTimeout(() => {
-        productListDiv.style.transition = 'transform 400ms';
-      }, 50);
-    }, 400);
+        productListDiv.style.transition = 'transform 300ms';
+      }, 100);
+    }, 300);
 
     // change style
     productListChildren[2].classList.remove('lg:w-[354px]', 'lg:h-[472px]', 'w-[192px]', 'h-[256px]');
@@ -80,7 +81,7 @@ export default function Products() {
       cardWidth = 300 + 36;
     } else {
       cardWidth = 163 + 16;
-      cardWidth *= 2;
+      // cardWidth *= 2;
     }
 
     setStyleProductList({
@@ -94,10 +95,11 @@ export default function Products() {
       setStyleProductList({
         transform: `translateX(${-cardWidth}px)`,
       });
+
       setTimeout(() => {
-        productListDiv.style.transition = 'transform 400ms';
-      }, 50);
-    }, 400);
+        productListDiv.style.transition = 'transform 300ms';
+      }, 100);
+    }, 300);
 
     // change style
     productListChildren[3].classList.add('lg:w-[354px]', 'lg:h-[472px]', 'w-[192px]', 'h-[256px]');
@@ -137,48 +139,54 @@ export default function Products() {
           <ul
             ref={productListRef}
             style={{ ...styleProductList }}
-            className="transition-all duration-[400ms] flex gap-4 mx-4 lg:mx-9 lg:gap-9 w-[300%]"
+            className="transition-transform duration-[300ms] flex gap-4 mx-4 lg:mx-9 lg:gap-9 w-[500%]"
           >
             <li className="lg:w-[300px] lg:h-[400px] w-[163px] h-[217px] rounded-xl bg-product3 bg-cover bg-center bg-no-repeat relative">
-              <div className="absolute bottom-[36px] left-[24px] hidden">
-                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
-                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
               </div>
             </li>
             <li className="lg:w-[300px] lg:h-[400px] w-[163px] h-[217px] rounded-xl bg-product1 bg-cover bg-center bg-no-repeat relative">
-              <div className="absolute bottom-[36px] left-[24px] hidden">
-                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
-                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
               </div>
             </li>
             <li className="lg:w-[354px] lg:h-[472px] w-[192px] h-[256px] rounded-xl bg-product2 bg-cover bg-center bg-no-repeat relative">
-              <div className="absolute bottom-[36px] left-[24px]">
-                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
-                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px]">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
               </div>
             </li>
             <li className="lg:w-[300px] lg:h-[400px] w-[163px] h-[217px] rounded-xl bg-product3 bg-cover bg-center bg-no-repeat relative">
-              <div className="absolute bottom-[36px] left-[24px] hidden">
-                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
-                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
               </div>
             </li>
             <li className="lg:w-[300px] lg:h-[400px] w-[163px] h-[217px] rounded-xl bg-product4 bg-cover bg-center bg-no-repeat relative">
-              <div className="absolute bottom-[36px] left-[24px] hidden">
-                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
-                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
               </div>
             </li>
             <li className="lg:w-[300px] lg:h-[400px] w-[163px] h-[217px] rounded-xl bg-product2 bg-cover bg-center bg-no-repeat relative">
-              <div className="absolute bottom-[36px] left-[24px] hidden">
-                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
-                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
               </div>
             </li>
             <li className="lg:w-[300px] lg:h-[400px] w-[163px] h-[217px] rounded-xl bg-product4 bg-cover bg-center bg-no-repeat relative">
-              <div className="absolute bottom-[36px] left-[24px] hidden">
-                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
-                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
+              </div>
+            </li>
+            <li className="lg:w-[300px] lg:h-[400px] w-[163px] h-[217px] rounded-xl bg-product2 bg-cover bg-center bg-no-repeat relative">
+              <div className="absolute bottom-4 left-4 lg:bottom-[36px] lg:left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-sm lg:text-2xl">$329</p>
+                <p className="text-white text-2xl lg:text-5xl mt-1 lg:mt-2">Sofa Und</p>
               </div>
             </li>
           </ul>
