@@ -12,6 +12,10 @@ module.exports = {
       },
       backgroundImage: {
         'highlight-product': "url('/static/images/highlighted-product.png')",
+        product1: "url('/static/images/product-1.png')",
+        product2: "url('/static/images/product-2.png')",
+        product3: "url('/static/images/product-3.png')",
+        product4: "url('/static/images/product-4.png')",
       },
     },
   },

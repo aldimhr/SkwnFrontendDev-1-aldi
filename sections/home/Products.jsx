@@ -1,17 +1,11 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 
-import product1 from '../../public/static/images/product-1.png';
-import product2 from '../../public/static/images/product-2.png';
-import product3 from '../../public/static/images/product-3.png';
-import product4 from '../../public/static/images/product-4.png';
-
 import leftArrowIcon from '../../public/static/images/leftArrow-icon.svg';
 import rightArrowIcon from '../../public/static/images/rightArrow-icon.svg';
 
 export default function Products() {
-  const [styleProductList, setStyleProductList] = useState({ transform: 'translateX(0px)' });
-  const [countSlider, setCountSlider] = useState({ index: 0, center: 0 });
+  const [styleProductList, setStyleProductList] = useState({ transform: 'translateX(-336px)' });
 
   const productListRef = useRef();
 
@@ -19,44 +13,68 @@ export default function Products() {
     e.preventDefault();
 
     const productListDiv = productListRef.current;
-    const currTranslateValue = new WebKitCSSMatrix(productListDiv.style.transform).m41;
     const productListChildren = productListDiv.children;
+    const cardWidth = 300 + 36;
 
-    if (countSlider.index <= 0) return;
-
-    const parentWidth = productListDiv.parentNode.offsetWidth;
-    const centerLen = (parentWidth - (productListChildren[countSlider.index - 1].offsetWidth + 16)) / 2;
-    const imgWidth = productListChildren[countSlider.index].offsetWidth + 16;
+    productListDiv.style.transition = 'transform 400ms';
 
     setStyleProductList({
-      transform: `translateX(${currTranslateValue + imgWidth + countSlider.center - centerLen}px)`,
+      transform: `translateX(${0}px)`,
     });
-    setCountSlider((prev) => ({
-      index: prev.index - 1,
-      center: centerLen,
-    }));
+
+    // transition
+    setTimeout(() => {
+      productListDiv.insertBefore(productListDiv.lastElementChild, productListDiv.firstChild);
+      productListDiv.style.transition = 'none';
+      setStyleProductList({
+        transform: `translateX(${-cardWidth}px)`,
+      });
+      setTimeout(() => {
+        productListDiv.style.transition = 'transform 400ms';
+      }, 100);
+    }, 300);
+
+    // change style
+    productListChildren[2].classList.remove('w-[354px]', 'h-[472px]');
+    productListChildren[2].classList.add('w-[300px]', 'h-[400px]');
+    productListChildren[2].firstChild.classList.toggle('hidden');
+    productListChildren[1].classList.remove('w-[300px]', 'h-[400px]');
+    productListChildren[1].classList.add('w-[354px]', 'h-[472px]');
+    productListChildren[1].firstChild.classList.toggle('hidden');
   };
 
   const handleRightButton = (e) => {
     e.preventDefault();
 
     const productListDiv = productListRef.current;
-    const currTranslateValue = new WebKitCSSMatrix(productListDiv.style.transform).m41;
     const productListChildren = productListDiv.children;
+    const cardWidth = 300 + 36;
 
-    if (countSlider.index >= productListChildren.length - 1) return;
-
-    const parentWidth = productListDiv.parentNode.offsetWidth;
-    const centerLen = (parentWidth - (productListChildren[countSlider.index + 1].offsetWidth + 16)) / 2;
-    const imgWidth = productListChildren[countSlider.index].offsetWidth + 16;
+    productListDiv.style.transition = 'transform 400ms';
 
     setStyleProductList({
-      transform: `translateX(${currTranslateValue - imgWidth - countSlider.center + centerLen}px)`,
+      transform: `translateX(${-cardWidth * 2}px)`,
     });
-    setCountSlider((prev) => ({
-      index: prev.index + 1,
-      center: centerLen,
-    }));
+
+    // transition
+    setTimeout(() => {
+      productListDiv.appendChild(productListDiv.firstElementChild);
+      productListDiv.style.transition = 'none';
+      setStyleProductList({
+        transform: `translateX(${-cardWidth}px)`,
+      });
+      setTimeout(() => {
+        productListDiv.style.transition = 'transform 400ms';
+      }, 100);
+    }, 300);
+
+    // change style
+    productListChildren[3].classList.add('w-[354px]', 'h-[472px]');
+    productListChildren[3].classList.remove('w-[300px]', 'h-[400px]');
+    productListChildren[3].firstChild.classList.toggle('hidden');
+    productListChildren[2].classList.add('w-[300px]', 'h-[400px]');
+    productListChildren[2].classList.remove('w-[354px]', 'h-[472px]');
+    productListChildren[2].firstChild.classList.toggle('hidden');
   };
 
   return (
@@ -85,18 +103,42 @@ export default function Products() {
 
         {/* product list */}
         <div className="relative lg:mt-12 overflow-x-hidden">
-          <ul ref={productListRef} style={{ ...styleProductList }} className="transition-transform duration-150 flex mx-2 gap-4 w-[300%]">
-            <li>
-              <Image src={product1} alt="product 1" />
+          <ul ref={productListRef} style={{ ...styleProductList }} className="transition-transform duration-150 flex mx-9 gap-9 w-[300%]">
+            <li className="w-[300px] h-[400px] rounded-xl bg-product3 bg-cover bg-center bg-no-repeat relative">
+              <div className="absolute bottom-[36px] left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
+                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              </div>
             </li>
-            <li>
-              <Image src={product2} alt="product 2" />
+            <li className="w-[300px] h-[400px] rounded-xl bg-product1 bg-cover bg-center bg-no-repeat relative">
+              <div className="absolute bottom-[36px] left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
+                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              </div>
             </li>
-            <li>
-              <Image src={product3} alt="product 3" />
+            <li className="w-[354px] h-[472px] rounded-xl bg-product2 bg-cover bg-center bg-no-repeat relative">
+              <div className="absolute bottom-[36px] left-[24px]">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
+                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              </div>
             </li>
-            <li>
-              <Image src={product4} alt="product 4" />
+            <li className="w-[300px] h-[400px] rounded-xl bg-product3 bg-cover bg-center bg-no-repeat relative">
+              <div className="absolute bottom-[36px] left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
+                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              </div>
+            </li>
+            <li className="w-[300px] h-[400px] rounded-xl bg-product4 bg-cover bg-center bg-no-repeat relative">
+              <div className="absolute bottom-[36px] left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
+                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              </div>
+            </li>
+            <li className="w-[300px] h-[400px] rounded-xl bg-product2 bg-cover bg-center bg-no-repeat relative">
+              <div className="absolute bottom-[36px] left-[24px] hidden">
+                <p className="px-4 py-2 rounded-xl bg-white bg-opacity-50 inline-block text-[#2F241F] text-2xl">$329</p>
+                <p className="text-white text-5xl mt-2">Sofa Und</p>
+              </div>
             </li>
           </ul>
         </div>
