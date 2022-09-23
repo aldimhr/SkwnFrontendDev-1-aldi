@@ -60,20 +60,20 @@ export default function Products() {
   };
 
   return (
-    <section className="py-8 bg-[#2F241F]">
+    <section className="py-8 lg:py-20 bg-[#2F241F]">
       {/* title */}
-      <div className="px-4 flex justify-between items-center">
+      <div className="px-4 flex justify-between items-center lg:px-[142px]">
         <div className="text-[#E5F0B6] ">
-          <h2 className="text-sm">Categories</h2>
-          <p className="font-bold text-lg">This month’s best seller</p>
+          <h2 className="text-sm lg:text-2xl">Categories</h2>
+          <p className="font-bold text-lg lg:text-5xl">This month’s best seller</p>
         </div>
 
-        <button className="text-xs px-4 py-3 bg-[#E5F0B6] rounded-2xl">SEE MORE</button>
+        <button className="text-xs lg:text-base px-4 py-3 bg-[#E5F0B6] rounded-2xl">SEE MORE</button>
       </div>
 
-      <div className="relative mt-6 overflow-hidden">
+      <div className="relative mt-6">
         {/* button */}
-        <div className="flex justify-between z-10 absolute top-1/2 left-0 right-0">
+        <div className="flex justify-between z-10 absolute top-1/2 left-0 right-0 lg:-bottom-[24px] lg:top-auto lg:left-auto lg:right-[141px] lg:justify-start lg:gap-9">
           <div onClick={handleLeftButton} className="w-12 h-12 flex justify-center items-center rounded-full bg-[#E5F0B6]">
             <Image src={leftArrowIcon} alt="left arrow" />
           </div>
@@ -84,7 +84,7 @@ export default function Products() {
         </div>
 
         {/* product list */}
-        <div className="relative">
+        <div className="relative lg:mt-12 overflow-x-hidden">
           <ul ref={productListRef} style={{ ...styleProductList }} className="transition-transform duration-150 flex mx-2 gap-4 w-[300%]">
             <li>
               <Image src={product1} alt="product 1" />
