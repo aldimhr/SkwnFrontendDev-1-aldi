@@ -1,13 +1,12 @@
-import Image from 'next/image';
-import bgImage from '../../public/static/images/highlighted-product.png';
-
 export default function HighlightProduct() {
   return (
-    <section className="px-4 py-6 bg-highlight-product bg-cover bg-no-repeat bg-center">
-      <h2 className="text-xs text-white">HIGHLIGHTED PRODUCT</h2>
-      <div className="mt-11">
-        <p className="px-4 py-2 rounded-xl bg-white inline-block">$329</p>
-        <p className="my-2 text-2xl text-white">Pösht Sofa</p>
+    <section className="px-4 py-6 bg-highlight-product bg-cover bg-no-repeat bg-center lg:relative">
+      <h2 className="text-xs text-white lg:hidden">HIGHLIGHTED PRODUCT</h2>
+      <div className="mt-11 lg:mt-0 lg:absolute lg:bottom-[87px] lg:left-12">
+        <p className="lg:bg-opacity-50 px-4 py-2 rounded-xl bg-white inline-block">$329</p>
+
+        <p className="my-2 lg:my-4 text-2xl text-white lg:text-[64px]">Pösht Sofa</p>
+
         <button className="rounded-xl px-4 py-3 bg-[#2F241F] text-white flex gap-4 items-center text-xs">
           VIEW DETAILS
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">

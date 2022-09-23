@@ -18,8 +18,12 @@ export default function Home() {
       </Head>
 
       <Header />
-      <Hero />
-      <HighlightProduct />
+      <div className="lg:grid lg:grid-cols-3 lg:h-screen lg:gap-16">
+        <div className="lg:col-span-2 lg:self-center">
+          <Hero />
+        </div>
+        <HighlightProduct />
+      </div>
       <WhyChooseUs />
       <BrandsPartner />
       <Categories />
