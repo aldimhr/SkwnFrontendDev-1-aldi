@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import Head from 'next/head';
+
+import { useRef, useState } from 'react';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -19,9 +22,57 @@ import product1 from '../public/static/images/product-1.png';
 import product2 from '../public/static/images/product-2.png';
 import product3 from '../public/static/images/product-3.png';
 import product4 from '../public/static/images/product-4.png';
-import Head from 'next/head';
 
 export default function Home() {
+  const [styleProductList, setStyleProductList] = useState({ transform: 'translateX(0px)' });
+  const [countSlider, setCountSlider] = useState({ index: 0, center: 0 });
+
+  const productListRef = useRef();
+
+  const handleLeftButton = (e) => {
+    e.preventDefault();
+
+    const productListDiv = productListRef.current;
+    const currTranslateValue = new WebKitCSSMatrix(productListDiv.style.transform).m41;
+    const productListChildren = productListDiv.children;
+
+    if (countSlider.index <= 0) return;
+
+    const parentWidth = productListDiv.parentNode.offsetWidth;
+    const centerLen = (parentWidth - (productListChildren[countSlider.index - 1].offsetWidth + 16)) / 2;
+    const imgWidth = productListChildren[countSlider.index].offsetWidth + 16;
+
+    setStyleProductList({
+      transform: `translateX(${currTranslateValue + imgWidth + countSlider.center - centerLen}px)`,
+    });
+    setCountSlider((prev) => ({
+      index: prev.index - 1,
+      center: centerLen,
+    }));
+  };
+
+  const handleRightButton = (e) => {
+    e.preventDefault();
+
+    const productListDiv = productListRef.current;
+    const currTranslateValue = new WebKitCSSMatrix(productListDiv.style.transform).m41;
+    const productListChildren = productListDiv.children;
+
+    if (countSlider.index >= productListChildren.length - 1) return;
+
+    const parentWidth = productListDiv.parentNode.offsetWidth;
+    const centerLen = (parentWidth - (productListChildren[countSlider.index + 1].offsetWidth + 16)) / 2;
+    const imgWidth = productListChildren[countSlider.index].offsetWidth + 16;
+
+    setStyleProductList({
+      transform: `translateX(${currTranslateValue - imgWidth - countSlider.center + centerLen}px)`,
+    });
+    setCountSlider((prev) => ({
+      index: prev.index + 1,
+      center: centerLen,
+    }));
+  };
+
   return (
     <div className="font-inter text-[#2F241F]">
       <Head>
@@ -47,6 +98,7 @@ export default function Home() {
           </button>
         </div>
       </section>
+      {/* end hero section */}
 
       {/* highlighted product */}
       <section className="px-4 py-6 bg-gray-500">
@@ -56,12 +108,7 @@ export default function Home() {
           <p className="my-2 text-2xl text-white">Pösht Sofa</p>
           <button className="rounded-xl px-4 py-3 bg-[#2F241F] text-white flex gap-4 items-center text-xs">
             VIEW DETAILS
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-4 h-4"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
               <path
                 fillRule="evenodd"
                 d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
@@ -71,23 +118,17 @@ export default function Home() {
           </button>
         </div>
       </section>
+      {/* end highlighted product */}
 
       {/* why choose us */}
       <section className="bg-[#2F241F] px-6 py-8  text-[#E5F0B6]">
         <h2 className="text-xs text-white text-center">WHY CHOOSE US?</h2>
-        <p className="font-bold text-2xl mt-6 text-center">
-          We care about details and the quality of our products
-        </p>
+        <p className="font-bold text-2xl mt-6 text-center">We care about details and the quality of our products</p>
         <ul className="mt-8">
           <li className="flex items-center gap-4">
             <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
               <div className="w-10 h-10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 mx-auto h-full my-auto"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 mx-auto h-full my-auto">
                   <path
                     fillRule="evenodd"
                     d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
@@ -96,17 +137,13 @@ export default function Home() {
                 </svg>
               </div>
             </div>
-            <p className="font-bold text-[15px] text-[#E5F0B6]">
-              MANUFACTURED WITH QUALITY MATERIALS
-            </p>
+            <p className="font-bold text-[15px] text-[#E5F0B6]">MANUFACTURED WITH QUALITY MATERIALS</p>
           </li>
           <li className="flex items-center gap-4 mt-4">
             <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
               <p className="font-bold text-2xl w-10 h-10 text-center leading-10 align-center">5</p>
             </div>
-            <p className="font-bold text-[15px] text-[#E5F0B6]">
-              5 YEARS OF WARRANTY FOR EACH PROFUCT
-            </p>
+            <p className="font-bold text-[15px] text-[#E5F0B6]">5 YEARS OF WARRANTY FOR EACH PROFUCT</p>
           </li>
           <li className="flex items-center gap-4 mt-4">
             <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
@@ -114,12 +151,11 @@ export default function Home() {
                 <Image src={workIcon} alt="work icon" />
               </div>
             </div>
-            <p className="font-bold text-[15px] text-[#E5F0B6]">
-              MANUFACTURED WITH QUALITY MATERIALS
-            </p>
+            <p className="font-bold text-[15px] text-[#E5F0B6]">MANUFACTURED WITH QUALITY MATERIALS</p>
           </li>
         </ul>
       </section>
+      {/* end why choose us */}
 
       {/* brands partner */}
       <section className="py-10 px-6">
@@ -142,6 +178,7 @@ export default function Home() {
           </li>
         </ul>
       </section>
+      {/* end brands partner */}
 
       {/* categories */}
       <section className="px-4 py-6">
@@ -154,10 +191,7 @@ export default function Home() {
             </li>
             <li className="bg-[#E5F0B6] px-4 py-5">
               <p className="font-bold text-lg">Living Room</p>
-              <p className="mt-3">
-                Enjoy a great living room aesthetics with your family Designs created for increased
-                comfortability
-              </p>
+              <p className="mt-3">Enjoy a great living room aesthetics with your family Designs created for increased comfortability</p>
             </li>
             <li className="bg-[#FCFAFA] px-4 py-5">
               <p className="font-bold text-lg">Home Office</p>
@@ -168,9 +202,11 @@ export default function Home() {
           </ul>
         </div>
       </section>
+      {/* end categories */}
 
       {/* products */}
       <section className="py-8 bg-[#2F241F]">
+        {/* title */}
         <div className="px-4 flex justify-between items-center">
           <div className="text-[#E5F0B6] ">
             <h2 className="text-sm">Categories</h2>
@@ -183,18 +219,18 @@ export default function Home() {
         <div className="relative mt-6 overflow-hidden">
           {/* button */}
           <div className="flex justify-between z-10 absolute top-1/2 left-0 right-0">
-            <div className="w-12 h-12 flex justify-center items-center rounded-full bg-[#E5F0B6]">
+            <div onClick={handleLeftButton} className="w-12 h-12 flex justify-center items-center rounded-full bg-[#E5F0B6]">
               <Image src={leftArrowIcon} alt="left arrow" />
             </div>
 
-            <div className="w-12 h-12 flex justify-center items-center rounded-full bg-[#E5F0B6]">
+            <div onClick={handleRightButton} className="w-12 h-12 flex justify-center items-center rounded-full bg-[#E5F0B6]">
               <Image src={rightArrowIcon} alt="right arrow" />
             </div>
           </div>
 
           {/* product list */}
-          <div className="h-[256px] relative">
-            <ul className="flex gap-4 w-[300%]">
+          <div className="relative">
+            <ul ref={productListRef} style={{ ...styleProductList }} className="transition-transform duration-150 flex mx-2 gap-4 w-[300%]">
               <li>
                 <Image src={product1} alt="product 1" />
               </li>
@@ -215,21 +251,16 @@ export default function Home() {
       {/* news letter */}
       <section className="py-8 px-4 bg-[#FCFAFA]">
         <h2 className="text-sm text-center">LIMITED DEALS</h2>
-        <p className="font-bold text-lg text-center mt-1">
-          Become a member and get 10% off of your first purchase
-        </p>
+        <p className="font-bold text-lg text-center mt-1">Become a member and get 10% off of your first purchase</p>
 
         <div className="flex mt-6">
-          <input
-            type="text"
-            placeholder="Enter your email here"
-            className="p-4 focus:outline-none rounded-l-xl"
-          />
+          <input type="text" placeholder="Enter your email here" className="p-4 focus:outline-none rounded-l-xl" />
           <div className="bg-[#E5F0B6] rounded-r-xl p-4">
             <Image src={envelopeIcon} alt="envelope icon" />
           </div>
         </div>
       </section>
+      {/* end news letter */}
 
       <Footer />
     </div>
