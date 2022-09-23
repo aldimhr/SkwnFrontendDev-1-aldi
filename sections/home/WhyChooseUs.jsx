@@ -3,10 +3,14 @@ import workIcon from '../../public/static/images/work-icon.svg';
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-[#2F241F] px-6 py-8  text-[#E5F0B6]">
-      <h2 className="text-xs text-white text-center">WHY CHOOSE US?</h2>
-      <p className="font-bold text-2xl mt-6 text-center">We care about details and the quality of our products</p>
-      <ul className="mt-8">
+    <section className="bg-[#2F241F] px-6 py-8 lg:px-[142px] lg:py-[72px] text-[#E5F0B6]">
+      <h2 className="text-xs text-white text-center lg:text-2xl lg:text-left">WHY CHOOSE US?</h2>
+
+      <p className="font-bold text-2xl mt-6 lg:mt-10 text-center lg:text-[64px] lg:text-left lg:leading-none">
+        We care about details and the quality of our products
+      </p>
+
+      <ul className="mt-8 lg:mt-10 lg:flex lg:justify-between lg:gap-16">
         <li className="flex items-center gap-4">
           <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
             <div className="w-10 h-10">
@@ -19,21 +23,21 @@ export default function WhyChooseUs() {
               </svg>
             </div>
           </div>
-          <p className="font-bold text-[15px] text-[#E5F0B6]">MANUFACTURED WITH QUALITY MATERIALS</p>
+          <p className="font-bold text-[15px] lg:text-2xl text-[#E5F0B6]">MANUFACTURED WITH QUALITY MATERIALS</p>
         </li>
-        <li className="flex items-center gap-4 mt-4">
+        <li className="flex items-center gap-4 lg:mt-0 mt-4">
           <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
             <p className="font-bold text-2xl w-10 h-10 text-center leading-10 align-center">5</p>
           </div>
-          <p className="font-bold text-[15px] text-[#E5F0B6]">5 YEARS OF WARRANTY FOR EACH PROFUCT</p>
+          <p className="font-bold lg:text-2xl text-[15px] text-[#E5F0B6]">5 YEARS OF WARRANTY FOR EACH PROFUCT</p>
         </li>
-        <li className="flex items-center gap-4 mt-4">
+        <li className="flex items-center gap-4 lg:mt-0 mt-4">
           <div className="text-[#F4F4F4] bg-opacity-50 rounded-lg bg-[#E5F0B6]">
             <div className="w-10 h-10 flex items-center justify-center ">
               <Image src={workIcon} alt="work icon" />
             </div>
           </div>
-          <p className="font-bold text-[15px] text-[#E5F0B6]">MANUFACTURED WITH QUALITY MATERIALS</p>
+          <p className="font-bold lg:text-2xl text-[15px] text-[#E5F0B6]">MANUFACTURED WITH QUALITY MATERIALS</p>
         </li>
       </ul>
     </section>
