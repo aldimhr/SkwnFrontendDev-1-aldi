@@ -5,7 +5,7 @@ import shoppingBagIcon from '../public/static/images/shopping_bag-icon.png';
 export default function Header() {
   return (
     <div className="shadow-md lg:shadow-none">
-      <header className="p-4 flex justify-between items-center">
+      <header className="p-4 lg:px-[100px] lg:py-[46px] flex justify-between items-center">
         <Image src={logo} alt="dekoor logo" />
         <ul className="lg:flex gap-12 hidden">
           <li>
