@@ -1,6 +1,9 @@
+import Image from 'next/image';
+import bgImage from '../../public/static/images/highlighted-product.png';
+
 export default function HighlightProduct() {
   return (
-    <section className="px-4 py-6 bg-gray-500">
+    <section className="px-4 py-6 bg-highlight-product bg-cover bg-no-repeat bg-center">
       <h2 className="text-xs text-white">HIGHLIGHTED PRODUCT</h2>
       <div className="mt-11">
         <p className="px-4 py-2 rounded-xl bg-white inline-block">$329</p>

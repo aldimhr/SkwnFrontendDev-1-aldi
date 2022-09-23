@@ -10,6 +10,9 @@ module.exports = {
         inter: ['"Inter"', ...defaultTheme.fontFamily.sans],
         plusJkt: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        'highlight-product': "url('/static/images/highlighted-product.png')",
+      },
     },
   },
   plugins: [],
