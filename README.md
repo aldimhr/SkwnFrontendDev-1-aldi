@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Bugs / To-Do List
 
-- [ ] products slider buggy on desktop and mobile
+- [x] products slider buggy on desktop and mobile
 
 ## Instalation
 
